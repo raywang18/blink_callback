@@ -12,6 +12,10 @@ GPIO.setup(i1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(i2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 def triangle(pin):
+  if pin == i1:
+    pin = o2
+  if pin == i2:
+    pin = o3
   pwm = GPIO.PWM(pin, 100)
   pwm.start(0)
   for dc in range(51):
@@ -22,8 +26,8 @@ def triangle(pin):
     sleep(0.01)
   pwm.stop()
 
-GPIO.add_event_detect(i1, GPIO.RISING, callback=triangle(o2), bouncetime=100)
-GPIO.add_event_detect(i2, GPIO.RISING, callback=triangle(o3), bouncetime=100)
+GPIO.add_event_detect(i1, GPIO.RISING, callback=triangle, bouncetime=100)
+GPIO.add_event_detect(i2, GPIO.RISING, callback=triangle, bouncetime=100)
 
 try:
   while True:
