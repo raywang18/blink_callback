@@ -2,12 +2,9 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BCM)
-
-o1 = 4
-o2 = 17
-o3 = 27
-i1 = 16
-i2 = 20
+ 
+o1, o2, o3 = 4, 17, 27
+i1, i2 = 16, 20
 GPIO.setup(o1, GPIO.OUT)
 GPIO.setup(o2, GPIO.OUT)
 GPIO.setup(o3, GPIO.OUT)
