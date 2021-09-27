@@ -37,9 +37,7 @@ try:
     sleep(0.5)
 except KeyboardInterrupt:
   print("\nExiting")
-  GPIO.cleanup()
 except Exception as e:
   print("\ne")
-  GPIO.cleanup()
 GPIO.cleanup()
 
