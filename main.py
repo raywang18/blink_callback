@@ -22,8 +22,8 @@ def triangle(pin):
     sleep(0.01)
   pwm.stop()
 
-GPIO.add_event_detect(i1, GPIO.RISING, callback=triangle, bouncetime=100)
-GPIO.add_event_detect(i2, GPIO.RISING, callback=triangle, bouncetime=100)
+GPIO.add_event_detect(i1, GPIO.RISING, callback=triangle(o2), bouncetime=100)
+GPIO.add_event_detect(i2, GPIO.RISING, callback=triangle(o3), bouncetime=100)
 
 try:
   while True:
